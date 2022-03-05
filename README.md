@@ -93,4 +93,4 @@ Acum să trecem la muncă.
 3. Implementează istoricul. Asemănător cu watchlist-ul, dar poți adăuga funcționalități noi. De exemplu, atunci când adaugi un film în istoric, îl ștergi din watchlist dacă era acolo. Sau să poți modifica data când ai privit un anumit film (în caz că ți-ai adus aminte că de fapt ai privit un film acum un an și vrei să-l ai frumos în aplicație)
 4. Implementează recomandările. Pagina cu recomandări ar trebui să includă câteva filme sugerate utilizatorului. Aici poți să te bazezi pe watchlist, istoric și TMDB (care are câteva api-uri utile pentru asta). Poți face mai multe tipuri de recomandări
 5. Combină toate funcționalitățile pentru a crea homepage-ul. Aș pune câte o parte din fiecare funcționalitate, de exemplu 3 filme din istoric, 3 filme din watchlist, 3 recomandări, un search rapid, etc...
-6. Bonus. Te provoc să adaugi ceva nou, orice consideri interesant
+6. Bonus. Te provoc să adaugi ceva nou, orice consideri interesant.
