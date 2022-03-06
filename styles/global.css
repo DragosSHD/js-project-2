@@ -1,0 +1,12 @@
+.result-item {
+    display: flex;
+    align-items: center;
+    background-color: #1f2633;
+    border-radius: 10px;
+    padding: 10px 0;
+}
+
+.result-item:hover {
+    background-color: #30394a;
+    cursor: pointer;
+}

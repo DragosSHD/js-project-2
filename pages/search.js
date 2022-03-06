@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+
 import Link from 'next/link';
 import useSWR from 'swr';
 import {
@@ -7,6 +8,8 @@ import {
   IconButton,
   Container,
   UnorderedList,
+  List,
+  ListIcon,
   ListItem,
   Progress,
   Text,
@@ -14,10 +17,15 @@ import {
   InputRightElement,
   VStack,
   Button,
-  Badge,
+  Badge, Box,
 } from '@chakra-ui/react';
-import { SearchIcon } from '@chakra-ui/icons';
+import {
+  SearchIcon,
+  ArrowForwardIcon,
+} from '@chakra-ui/icons';
 import Layout from '../components/Layout';
+import {buildImageUrl} from "../utils/api";
+import Image from "next/image";
 
 function SearchBar() {
   const router = useRouter();
@@ -42,7 +50,7 @@ function SearchBar() {
       <Input
         placeholder="Search for a movie..."
         value={text}
-        onChange={(event) => setText(event.target.value)}
+        onChange={event => setText(event.target.value)}
       />
       <InputRightElement>
         <IconButton
@@ -62,34 +70,47 @@ function SearchResults() {
     return <Text>Type some terms and submit for a quick search</Text>;
   }
   if (error) {
+
     return (
       <Text color="red">
-        Error fetching movies for {terms}: {JSON.stringify(error)}
+        Error fetching movies for {terms}: {JSON.stringify(error)} {error}
       </Text>
     );
   }
   if (!data) {
     return <Progress size="xs" isIndeterminate />;
   }
-  if (!data.results || !data.results.length) {
+  if(!data.results) {
+    return <Text>No results. ({data.status_message})</Text>;
+  }
+  if (!data.results.length) {
     return <Text>No results</Text>;
   }
   return (
-    <UnorderedList stylePosition="inside">
-      {data.results.map(({ id, title, release_date }) => (
-        <ListItem key={id}>
-          <Link href={`/movies/${id}`} passHref>
-            <Button
-              as="a"
-              variant="link"
-              rightIcon={<Badge>{release_date}</Badge>}
-            >
-              <Text as="span">{title} </Text>
-            </Button>
+    <List stylePosition="inside" spacing={2} style={{
+      padding: '4px 0'
+    }}>
+      {data.results.map(({ id, title, release_date, poster_path }) => (
+          <Link href={`/movies/${id}`} key={id} passHref>
+            <ListItem key={id} className={'result-item'}>
+                <Image
+                    src={poster_path ? buildImageUrl(poster_path, 'w300') : '/no-img.png'}
+                    alt="Movie poster"
+                    width="100"
+                    height="100"
+                    objectFit="contain"
+                    fallbackSrc={'/no-img.png'}
+                    unoptimized
+                />
+                <Box w='95%'>
+                  <Text as="div" isTruncated>{title}</Text>
+                  <Badge>{release_date}</Badge>
+                </Box>
+            </ListItem>
           </Link>
-        </ListItem>
       ))}
-    </UnorderedList>
+    </List>
+
   );
 }
 

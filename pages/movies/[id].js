@@ -17,7 +17,6 @@ import {
 } from '@chakra-ui/react';
 import Layout from '../../components/Layout';
 import HistoryButton from '../../components/HistoryButton';
-
 const MovieContent = () => {
   const { id } = useRouter().query;
   const { data, error } = useSWR(id && `/api/movies/${id}`);
@@ -36,6 +35,7 @@ const MovieContent = () => {
       </Center>
     );
   }
+  console.log(data);
   return (
     <Stack direction={['column', 'row']} spacing={4}>
       <Head>
@@ -46,7 +46,7 @@ const MovieContent = () => {
           <HistoryButton />
         </HStack>
         <Image
-          src={buildImageUrl(data.poster_path, 'w300')}
+          src={data.poster_path ? buildImageUrl(data.poster_path, 'w300') : '/no-img.png'}
           alt="Movie poster"
           layout="responsive"
           width="300"
@@ -64,8 +64,8 @@ const MovieContent = () => {
             </Tag>
           </Box>
         </HStack>
+        <Box><Badge variant='outline'>{data.original_language}</Badge></Box>
         <Box>{data.tagline}</Box>
-
         <Stack direction="row">
           {data.genres?.map((genre) => (
             <Badge key={genre.id} colorScheme="purple" variant="outline">

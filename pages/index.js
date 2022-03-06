@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Layout title="Homepage">
       <Center h="full">
-        <Heading as="h2">App is up and running</Heading>
+        <Heading as="h2">App is up and running!</Heading>
       </Center>
     </Layout>
   );
