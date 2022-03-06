@@ -71,7 +71,7 @@ function SearchResults() {
   if (!data) {
     return <Progress size="xs" isIndeterminate />;
   }
-  if (!data.results.length) {
+  if (!data.results || !data.results.length) {
     return <Text>No results</Text>;
   }
   return (
