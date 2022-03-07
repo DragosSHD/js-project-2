@@ -7,7 +7,6 @@ import {
   Input,
   IconButton,
   Container,
-  UnorderedList,
   List,
   ListIcon,
   ListItem,
@@ -99,7 +98,6 @@ function SearchResults() {
                     width="100"
                     height="100"
                     objectFit="contain"
-                    fallbackSrc={'/no-img.png'}
                     unoptimized
                 />
                 <Box w='95%'>

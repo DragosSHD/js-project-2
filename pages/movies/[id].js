@@ -14,9 +14,12 @@ import {
   Stack,
   Tag,
   Text,
+  Link,
 } from '@chakra-ui/react';
+import {ExternalLinkIcon} from'@chakra-ui/icons';
 import Layout from '../../components/Layout';
-import HistoryButton from '../../components/HistoryButton';
+import HistoryButton from '../../components/HistoryButton'
+
 const MovieContent = () => {
   const { id } = useRouter().query;
   const { data, error } = useSWR(id && `/api/movies/${id}`);
@@ -35,7 +38,18 @@ const MovieContent = () => {
       </Center>
     );
   }
-  console.log(data);
+
+  let movieWebsite;
+  if(data.homepage) {
+    movieWebsite = (
+        <Box>
+          <Link href={data.homepage} isExternal>
+            <Text as='a'>Movie Website <ExternalLinkIcon /></Text>
+          </Link>
+        </Box>
+    );
+  }
+
   return (
     <Stack direction={['column', 'row']} spacing={4}>
       <Head>
@@ -64,7 +78,7 @@ const MovieContent = () => {
             </Tag>
           </Box>
         </HStack>
-        <Box><Badge variant='outline'>{data.original_language}</Badge></Box>
+        <Box><Badge variant='subtle'>{data.original_language}</Badge></Box>
         <Box>{data.tagline}</Box>
         <Stack direction="row">
           {data.genres?.map((genre) => (
@@ -74,6 +88,7 @@ const MovieContent = () => {
           ))}
         </Stack>
         <Box>{data.overview}</Box>
+        {movieWebsite}
       </Stack>
     </Stack>
   );
