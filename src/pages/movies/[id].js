@@ -45,7 +45,7 @@ const MovieContent = () => {
     movieWebsite = (
         <Box>
           <Link href={data.homepage} isExternal>
-            <Text as='a'>Movie Website <ExternalLinkIcon /></Text>
+            <Text>Movie Website <ExternalLinkIcon /></Text>
           </Link>
         </Box>
     );
@@ -73,6 +73,7 @@ const MovieContent = () => {
           width="300"
           height="450"
           objectFit="contain"
+          priority
           unoptimized
         />
       </Box>

@@ -55,10 +55,10 @@ function Header() {
             spacing={4}
           >
             <MenuItem href="/search">Search</MenuItem>
-            <MenuItem href="/" disabled>
+            <MenuItem href="/watchlist" disabled>
               Watchlist
             </MenuItem>
-            <MenuItem href="/" disabled>
+            <MenuItem href="/history" >
               History
             </MenuItem>
           </Stack>
@@ -77,10 +77,11 @@ function Header() {
 }
 
 export default function Layout({ title, children }) {
+
   return (
     <>
       <Head>
-        {title && <title>{title}</title>}
+        {title && <title>{title} | MoviesDB</title>}
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Grid minH="100vh">
