@@ -1,8 +1,8 @@
-import { useRouter } from 'next/router';
+import {Router, useRouter} from 'next/router';
 import Image from 'next/image';
 import Head from 'next/head';
 import useSWR from 'swr';
-import { buildImageUrl } from '../../utils/api';
+import { buildImageUrl } from '../../../utils/api';
 import {
   Badge,
   Box,
@@ -19,6 +19,7 @@ import {
 import {ExternalLinkIcon} from'@chakra-ui/icons';
 import Layout from '../../components/Layout';
 import HistoryButton from '../../components/HistoryButton'
+import Error from "next/error";
 
 const MovieContent = () => {
   const { id } = useRouter().query;
@@ -48,6 +49,12 @@ const MovieContent = () => {
           </Link>
         </Box>
     );
+  }
+
+  if(!data.id) {
+    return  (
+        <Error statusCode={404} />
+    )
   }
 
   return (

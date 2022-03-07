@@ -1,7 +1,7 @@
 import { ChakraProvider } from '@chakra-ui/react';
-import theme from '../utils/theme';
+import theme from '../../utils/theme';
 import { SWRConfig } from 'swr';
-import { swrOptions } from '../utils/api';
+import { swrOptions } from '../../utils/api';
 import '../styles/global.css';
 
 function MyApp({ Component, pageProps }) {

@@ -1,6 +1,6 @@
-import { fetcher } from '../../../utils/api';
-import History from '../../../models/History';
-import dbConnect from '../../../utils/dbConnect';
+import { fetcher } from '../../../../utils/api';
+import History from '../../../../models/History';
+import dbConnect from '../../../../utils/dbConnect';
 
 const getMovieUrl = (id) =>
   `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.TMDB_API_KEY}`;

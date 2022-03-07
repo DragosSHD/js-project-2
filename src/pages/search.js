@@ -8,7 +8,6 @@ import {
   IconButton,
   Container,
   List,
-  ListIcon,
   ListItem,
   Progress,
   Text,
@@ -20,10 +19,9 @@ import {
 } from '@chakra-ui/react';
 import {
   SearchIcon,
-  ArrowForwardIcon,
 } from '@chakra-ui/icons';
 import Layout from '../components/Layout';
-import {buildImageUrl} from "../utils/api";
+import {buildImageUrl} from "../../utils/api";
 import Image from "next/image";
 
 function SearchBar() {

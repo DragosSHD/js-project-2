@@ -2,7 +2,7 @@ import { CalendarIcon } from '@chakra-ui/icons';
 import { IconButton, Tooltip } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-import { fetcher } from '../utils/api';
+import { fetcher } from '../../utils/api';
 
 export default function HistoryButton() {
   const { id } = useRouter().query;
