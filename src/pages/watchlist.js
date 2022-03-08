@@ -1,21 +1,15 @@
 import Layout from "../components/Layout";
-import {Container} from "@chakra-ui/react";
+import {Container,} from "@chakra-ui/react";
+import MovieList from "../components/MovieList";
 
-
-function MovieList() {
-
-    // TODO: Create a list of movies from database watchlist.
-
-}
-
-export default function Watchlist() {
+export default function History() {
 
     return (
-      <Layout title="Watchlist">
-          <Container>
-              <h1>Watchlist Page</h1>
-          </Container>
-      </Layout>
+        <Layout title="Watchlist">
+            <Container>
+                <MovieList listName='watchlist' apiRoute='watchlist' />
+            </Container>
+        </Layout>
     );
 
 }

@@ -22,7 +22,7 @@ export default function HistoryButton() {
             })
           );
         }}
-      >
+       aria-label='Trigger history'>
         <CalendarIcon />
       </IconButton>
     </Tooltip>

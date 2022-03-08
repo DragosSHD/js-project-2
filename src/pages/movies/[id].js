@@ -20,6 +20,7 @@ import {ExternalLinkIcon} from'@chakra-ui/icons';
 import Layout from '../../components/Layout';
 import HistoryButton from '../../components/HistoryButton'
 import Error from "next/error";
+import WatchlistButton from "../../components/WatchlistButton";
 
 const MovieContent = () => {
   const { id } = useRouter().query;
@@ -65,6 +66,7 @@ const MovieContent = () => {
       <Box minW="300px" pos="relative">
         <HStack pos="absolute" zIndex={1} top={2} right={2}>
           <HistoryButton />
+          <WatchlistButton />
         </HStack>
         <Image
           src={data.poster_path ? buildImageUrl(data.poster_path, 'w300') : '/no-img.png'}
