@@ -1,12 +1,12 @@
 import { fetcher} from "../../../../utils/api";
 import Watchlist from "../../../../models/Watchlist";
 import dbConnect from "../../../../utils/dbConnect";
-import watchlist from "../../../../models/Watchlist";
 
 const getMovieUrl = (id) =>
     `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.TMDB_API_KEY}`;
 
 export default async function handler(req, res) {
+    await dbConnect();
 
     const { method } = req;
     const { id } = req.query;
