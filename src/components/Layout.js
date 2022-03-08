@@ -55,7 +55,7 @@ function Header() {
             spacing={4}
           >
             <MenuItem href="/search">Search</MenuItem>
-            <MenuItem href="/watchlist" disabled>
+            <MenuItem href="/watchlist">
               Watchlist
             </MenuItem>
             <MenuItem href="/history" >
