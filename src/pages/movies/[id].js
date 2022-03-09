@@ -1,4 +1,4 @@
-import {Router, useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Head from 'next/head';
 import useSWR from 'swr';
@@ -18,7 +18,6 @@ import {
 } from '@chakra-ui/react';
 import {ExternalLinkIcon} from'@chakra-ui/icons';
 import Layout from '../../components/Layout';
-import HistoryButton from '../../components/HistoryButton'
 import Error from "next/error";
 import WatchlistButton from "../../components/WatchlistButton";
 
@@ -66,7 +65,6 @@ const MovieContent = () => {
       <Box minW="300px" pos="relative">
         <HStack pos="absolute" zIndex={1} top={2} right={2}>
           <WatchlistButton />
-          <HistoryButton />
         </HStack>
         <Image
           src={data.poster_path ? buildImageUrl(data.poster_path, 'w300') : '/no-img.png'}
