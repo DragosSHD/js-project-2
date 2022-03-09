@@ -28,26 +28,15 @@ function WarningDialog(props) {
         >
             <AlertDialogOverlay/>
             <AlertDialogContent>
-                <AlertDialogHeader>Add to watchlist?</AlertDialogHeader>
+                <AlertDialogHeader>You have already seen this movie!</AlertDialogHeader>
                 <AlertDialogCloseButton/>
                 <AlertDialogBody>
-                    Are you sure you want to add this movie in your watchlist?
-                    This will delete it from your history!
+                    If you want to add this movie to your watchlist, you must first delete it from
+                    your history.
                 </AlertDialogBody>
                 <AlertDialogFooter>
                     <Button onClick={props.onClose}>
                         Cancel
-                    </Button>
-                    <Button colorScheme='red' ml={3} onClick={() => {
-                        props.mutate(() =>
-                            fetcher(`/api/watchlist/${props.id}`, {
-                                method: props.data.found ? 'DELETE': 'PUT'
-                            })
-                        );
-                        props.onClose();
-                    }
-                    } autoFocus>
-                        Add
                     </Button>
                 </AlertDialogFooter>
             </AlertDialogContent>
@@ -64,7 +53,7 @@ export default function WatchlistButton() {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     let alertBtn;
-    if(!data?.found && historyData.found) {
+    if(!data?.found && historyData?.found) {
         console.log("In history");
         alertBtn = <WarningDialog
             onClose={onClose}
