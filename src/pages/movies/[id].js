@@ -65,7 +65,6 @@ const MovieContent = () => {
       </Head>
       <Box minW="300px" pos="relative">
         <HStack pos="absolute" zIndex={1} top={2} right={2}>
-          <HistoryButton />
           <WatchlistButton />
         </HStack>
         <Image

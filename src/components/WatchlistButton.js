@@ -10,7 +10,7 @@ export default function WatchlistButton() {
     const { data, mutate } = useSWR(`/api/watchlist/${id}`);
 
     return (
-      <Tooltip label={data?.found ? 'Add to watchlist' : 'Remove from watchlist'}>
+      <Tooltip label={data?.found ? 'Remove from watchlist' : 'Add to watchlist'}>
           <IconButton
             isLoading={!data}
             aria-label='Trigger watchlist'
