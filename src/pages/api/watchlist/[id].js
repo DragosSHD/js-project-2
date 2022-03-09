@@ -14,8 +14,6 @@ export default async function handler(req, res) {
     if(method === 'GET') {
         const watchlist = await Watchlist.findOne({ id });
 
-        console.log(watchlist == null);
-
         if (watchlist) {
             res.json({found: true});
         } else {

@@ -66,6 +66,7 @@ const MovieContent = () => {
       <Box minW="300px" pos="relative">
         <HStack pos="absolute" zIndex={1} top={2} right={2}>
           <WatchlistButton />
+          <HistoryButton />
         </HStack>
         <Image
           src={data.poster_path ? buildImageUrl(data.poster_path, 'w300') : '/no-img.png'}
