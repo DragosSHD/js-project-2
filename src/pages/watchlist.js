@@ -7,7 +7,9 @@ export default function History() {
     return (
         <Layout title="Watchlist">
             <Container>
-                <MovieList listName='watchlist' apiRoute='watchlist' />
+                <MovieList listName='watchlist'
+                           apiRoute='watchlist'
+                           addToHistoryBtn='true' />
             </Container>
         </Layout>
     );

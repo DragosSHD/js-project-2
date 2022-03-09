@@ -1,5 +1,19 @@
 import useSWR from "swr";
-import {Alert, AlertIcon, Box, Center, Divider, Heading, Link, List, ListItem, Progress, Text} from "@chakra-ui/react";
+import {
+    Alert,
+    AlertIcon,
+    Box,
+    Center,
+    Heading,
+    List,
+    ListItem,
+    Progress,
+    Button,
+    Text, IconButton
+} from "@chakra-ui/react";
+import { CalendarIcon } from "@chakra-ui/icons";
+import Link from "next/link";
+import HistoryButton from "./HistoryButton";
 
 export default function MovieList(props) {
 
@@ -35,14 +49,13 @@ export default function MovieList(props) {
                       borderRadius={10}
                       className={'movies-list'}>
                     {data.map(({title, id}) => (
-                        <Link href={`/movies/${id}`} key={id}>
-                            <ListItem m='10px 0'>
+                        <ListItem m='10px 0' className='movie-list-item' key={id}>
+                            <Link href={`/movies/${id}`} >
                                 <Center>
-                                    <Text as="span" fontSize='xl' isTruncated>{title}</Text>
+                                    <Text as="span" fontSize='xl' padding='12px' isTruncated>{title}</Text>
                                 </Center>
-                            </ListItem>
-                            <Divider/>
-                        </Link>
+                            </Link>
+                        </ListItem>
                     ))}
                 </List>
             </Center>

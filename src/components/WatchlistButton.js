@@ -46,15 +46,14 @@ function WarningDialog(props) {
 }
 
 
-export default function WatchlistButton() {
-    const { id } = useRouter().query;
+export default function WatchlistButton(props) {
+    const id = props.id;
     const { data, mutate } = useSWR(`/api/watchlist/${id}`);
     const { data: historyData } = useSWR(`/api/history/${id}`);
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     let alertBtn;
     if(!data?.found && historyData?.found) {
-        console.log("In history");
         alertBtn = <WarningDialog
             onClose={onClose}
             isOpen={isOpen}
@@ -76,7 +75,6 @@ export default function WatchlistButton() {
                     size='sm'
                     onClick={() => {
                         if(!data?.found && alertBtn) {
-                            console.log("Hi " + alertBtn);
                             onOpen();
                         } else {
                             mutate(() =>
