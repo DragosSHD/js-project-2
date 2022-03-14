@@ -7,7 +7,6 @@ import {
     IconButton,
     Tooltip, useDisclosure
 } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 import useSWR from 'swr';
 import { fetcher } from '../../utils/api';

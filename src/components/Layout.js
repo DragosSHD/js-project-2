@@ -26,11 +26,11 @@ function Header() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box bg="purple.500">
+    <Box bg="blue.500">
       <Container>
         <Stack
           as="nav"
-          direction={['column', , 'row']}
+          direction={['column', undefined, 'row']}
           justify="space-between"
           wrap="wrap"
           py="1.5rem"
@@ -40,7 +40,7 @@ function Header() {
               <Heading size="lg">Movies DB</Heading>
             </MenuItem>
 
-            <Box display={['block', , 'none']} onClick={onToggle}>
+            <Box display={['block', undefined, 'none']} onClick={onToggle}>
               <Button variant="outline">
                 <HamburgerIcon />
               </Button>
@@ -48,11 +48,13 @@ function Header() {
           </HStack>
 
           <Stack
-            direction={['column', , 'row']}
+            direction={['column', undefined, 'row']}
             justify="start"
-            align={['start', , 'center']}
-            display={[isOpen ? 'flex' : 'none', , 'flex']}
+            align={['start', undefined, 'center']}
+            display={[isOpen ? 'flex' : 'none', undefined, 'flex']}
             spacing={4}
+            bg={['blue.700', undefined, 'inherit']}
+            p={[2, undefined, 0]}
           >
             <MenuItem href="/search">Search</MenuItem>
             <MenuItem href="/watchlist">
@@ -65,7 +67,7 @@ function Header() {
 
           <Spacer />
 
-          <Box display={[isOpen ? 'block' : 'none', , 'block']}>
+          <Box display={[isOpen ? 'block' : 'none', undefined, 'block']} >
             <MenuItem href="/" variant="outline" disabled>
               What to watch
             </MenuItem>

@@ -11,9 +11,7 @@ import {
     Button,
     Text, IconButton
 } from "@chakra-ui/react";
-import { CalendarIcon } from "@chakra-ui/icons";
 import Link from "next/link";
-import HistoryButton from "./HistoryButton";
 
 export default function MovieList(props) {
 

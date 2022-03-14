@@ -1,4 +1,3 @@
-import {useRouter} from "next/router";
 import useSWR from "swr";
 import {
     AlertDialogBody,
@@ -11,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { SmallAddIcon } from "@chakra-ui/icons";
 import {fetcher} from "../../utils/api";
-import React, {useState} from "react";
+import React,  from "react";
 
 
 function WarningDialog(props) {
