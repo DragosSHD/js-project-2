@@ -11,12 +11,4 @@
     cursor: pointer;
 }
 
-.movies-list {
-    margin: 20px;
-}
-
-.movie-list-item:hover {
-    cursor: pointer;
-    background-color: #30394a;
-}
 
