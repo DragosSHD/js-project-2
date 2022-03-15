@@ -86,7 +86,7 @@ export default function Layout({ title, children }) {
         {title && <title>{title} | MoviesDB</title>}
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Grid minH="100vh">
+      <Grid minH="100vh" mb={5}>
         <VStack w="full" align="stretch" spacing={8}>
           <Header />
           <Box as="main" h="full">
