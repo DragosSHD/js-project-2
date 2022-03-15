@@ -14,9 +14,10 @@ import {
   Stack,
   Tag,
   Text,
-  Link,
+  Link
 } from '@chakra-ui/react';
 import {ExternalLinkIcon} from'@chakra-ui/icons';
+
 import Layout from '../../components/Layout';
 import Error from "next/error";
 import WatchlistButton from "../../components/WatchlistButton";
@@ -58,6 +59,7 @@ const MovieContent = () => {
     )
   }
 
+
   return (
     <Stack direction={['column', 'row']} spacing={4}>
       <Head>
@@ -68,16 +70,18 @@ const MovieContent = () => {
           <WatchlistButton id={id}/>
           <HistoryButton id={id}/>
         </HStack>
-        <Image
-          src={data.poster_path ? buildImageUrl(data.poster_path, 'w300') : '/no-img.png'}
-          alt="Movie poster"
-          layout="responsive"
-          width="300"
-          height="450"
-          objectFit="contain"
-          priority
-          unoptimized
-        />
+          <a href={"https://www.youtube.com/watch?v=" + data.trailer} target='_blank' rel='noreferrer'>
+            <Image
+                src={data.poster_path ? buildImageUrl(data.poster_path, 'w300') : '/no-img.png'}
+                alt="Movie poster"
+                layout="responsive"
+                width="300"
+                height="450"
+                objectFit="contain"
+                priority
+                unoptimized
+            />
+          </a>
       </Box>
       <Stack>
         <HStack justify="space-between">

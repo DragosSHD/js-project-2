@@ -48,7 +48,6 @@ function WarningDialog(props) {
 }
 
 export default function HistoryButton(props) {
-      console.log(props.id);
       const id = props?.id;
       const { data, mutate } = useSWR(`/api/history/${id}`);
       const { data: watchlistData } = useSWR(`/api/watchlist/${id}`);
