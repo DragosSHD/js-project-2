@@ -59,6 +59,7 @@ const MovieContent = () => {
     )
   }
 
+  // TODO: Add a hover effect on the movie poster with the text: "Watch trailer"
 
   return (
     <Stack direction={['column', 'row']} spacing={4}>
