@@ -11,4 +11,12 @@
     cursor: pointer;
 }
 
+.grid-movie {
+    transition: all .2s ease-in-out;
+}
+
+.grid-movie:hover {
+    cursor: pointer;
+    transform: scale(1.08);
+}
 

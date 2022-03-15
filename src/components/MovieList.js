@@ -32,7 +32,7 @@ export default function MovieList(props) {
                 <AlertIcon/>
                 There are no movies in your {props.listName}!
             </Alert>
-        )
+        );
     }
     if(error) {
         return (
@@ -40,7 +40,7 @@ export default function MovieList(props) {
                 <AlertIcon/>
                 Error occurred: {JSON.stringify(error)}
             </Alert>
-        )
+        );
     }
 
 
